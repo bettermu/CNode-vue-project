@@ -35,7 +35,7 @@ export default {
           this.$store.dispatch('initUserData', res.data)
           //console.log(this.$store.state.isLogin)
           this.$router.back()
-          
+
         }, res => {
           this.$store.dispatch('add_fail', { content: '验证失败' })
         })

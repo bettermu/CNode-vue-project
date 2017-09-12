@@ -199,3 +199,7 @@ document.documentElement.offsetHeight-window.scrollY<=window.screen.height
 ### 6.当进入其他路由时，仍然会触发主页的scroll事件
 解决方法：将路由生命钩子改成beforeRouterEnter和beforeRouterLeave 分别实现载入路由时的scroll事件挂载以及离开路由时的scoll事件卸载。从而防止主页内容的懒加载一直触发。
 
+
+## 六、注意事项
+不要使用过高的Node版本，不然会npm install出错，本人使用6.9.2的，但不久使用7.6的版本再install运行，直接就版本出错。切换回去，一切正常。
+

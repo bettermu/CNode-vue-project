@@ -43,6 +43,7 @@ export default {
     ])
   },
 
+
   methods: {
 
     //导航切换
@@ -78,22 +79,22 @@ export default {
         })
     },
 
-    //返回顶部
-    backToTop(){
-      //将返回顶部设置为250ms的动画
-      let scrollPiece=window.scrollY/50
-      let topInterval=window.setInterval(()=>{
-        if(window.scrollY<=0){
+    //  返回顶部
+    backToTop () {
+      //  将返回顶部设置为250ms的动画
+      let scrollPiece = window.scrollY / 50
+      let topInterval = window.setInterval(() => {
+        if (window.scrollY <= 0) {
           window.clearInterval(topInterval)
-        }else {
-          window.scrollTo(0,window.scrollY-scrollPiece)
+        } else {
+          window.scrollTo(0, window.scrollY - scrollPiece)
         }
-      },5)
+      }, 5)
     },
 
     //滚动状态控制
     scrollFunc() {
-      
+
       this.$store.dispatch('record_scroll_top', window.scrollY)
       if (!this.isRequesting && document.documentElement.offsetHeight - window.scrollY <= window.screen.height) {
         this.$store.dispatch('async_request_data', true)
@@ -102,14 +103,14 @@ export default {
         this.loadMoreData(this.selectedTab, this.pageCount)
       }
 
-      if(window.scrollY>200){
-        if(this.isTopShow===false){
-          this.$store.dispatch('backToTop',true)
+      if (window.scrollY > 200) {
+        if (this.isTopShow === false) {
+          this.$store.dispatch('backToTop', true)
         }
-        
-      }else{
-        if(this.isTopShow===true){
-          this.$store.dispatch('backToTop',false)
+
+      } else {
+        if (this.isTopShow === true) {
+          this.$store.dispatch('backToTop', false)
         }
       }
     },
@@ -131,7 +132,7 @@ export default {
   beforeRouteEnter(to, from, next) {
 
     next(vm => {
-      
+
       window.scrollTo(0, vm.homeScrollTop)
 
       window.setTimeout(() => {
